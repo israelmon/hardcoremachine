@@ -42,7 +42,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 8,
+    "uniqCompNum": 9,
     "versionPublish": "5.4.1",
     "screenshot": "screenshot.png"
   },
@@ -1444,32 +1444,41 @@
         {
           "alias": false,
           "_styles": {
-            "background-color": "@bgcolor",
-            "& when (@fullWidth = false)": {
-              "padding-top": "(@paddingTop * 15px)",
-              "padding-bottom": "(@paddingBottom * 15px)"
+            "padding-top": "(@paddingTop * 15px)",
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
             },
-            "@media (max-width: 768px)": {
-              "video": {
-                "width": "100% !important"
-              }
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
             },
-            "video": {
-              "margin": "auto",
-              "display": "block",
-              "& when (@fullWidth)": {
-                "width": "100% !important"
-              }
+            "H2": {
+              "color": "#e2090d"
+            },
+            "h1": {
+              "background": "linear-gradient(to left, @secondaryColor, currentColor)",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent"
+            },
+            "section": {
+              "align-items": "flex-end !important"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#999999"
+            },
+            ".mbr-overlay": {
+              "background-color": "transparent !important",
+              "background": "linear-gradient(to top, @overlayColor, transparent)"
             }
           },
-          "_name": "design-block",
-          "_customHTML": "<section group=\"Images & Videos\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"8\" step=\"1\" condition=\"fullWidth==false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"4\" step=\"1\" condition=\"fullWidth==false\">\n    <input type=\"range\" inline title=\"Width\" name=\"videoSize\" min=\"20\" max=\"100\" value=\"46\" step=\"1\" condition=\"fullWidth==false\">\n    <input type=\"text\" title=\"Video URL or filename\" name=\"videoSrc\" value=\"https://www.hardcoremachine.cl/assets/videos/video.mp4\">\n    <input type=\"text\" title=\"Poster URL or filename\" name=\"videoPoster\" value=\"https://www.hardcoremachine.cl/assets/images/captura.PNG\">\n    <input type=\"color\" title=\"Background Color\" name=\"bgcolor\" value=\"#191919\" selected>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <figure class=\"mbr-figure align-center\">\n      <video mbr-style=\"{'width':videoSize+'%'}\" poster=\"{{ videoPoster }}\" controls>\n        <source src=\"{{ videoSrc }}\" type=\"video/mp4\">\n      </video>\n    </figure>\n</section>",
-          "_cid": "krTzwH1rAh",
-          "_anchor": "design-block-krTzwH1rAh",
+          "_name": "image1",
+          "_sourceTheme": "solutionm4",
+          "_customHTML": "<section group=\"Images\" class=\"image1 solutionm4_image1\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <header>Size</header>\n\n        <input type=\"range\" inline title=\"Height\" name=\"paddingTop\" min=\"0\" max=\"50\" step=\"1\" value=\"43\">\n\n        <header>Show/Hide</header>\n\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#232323\">\n            <input type=\"video\" title=\"Video\" value=\"https://www.youtube.com/watch?v=WrdG1BGm7bM\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"1\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div class=\"container-fluid align-center\">\n        <div class=\"row justify-content-center\">\n            <div class=\"mbr-white col-md-12 col-lg-11\">\n                <h2 class=\"mbr-section-title mbr-white align-left pb-2 mbr-fonts-style\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\"><b>Maria del Pilar</b></h2>\n                <p class=\"mbr-text pb-4 mbr-white mbr-regular align-left mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Copiapo Hardcore</p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sN5aJ0s2oM",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {}
+          "_params": {},
+          "_anchor": "image1-8"
         },
         {
           "alias": false,

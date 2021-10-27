@@ -1967,19 +1967,27 @@ a {
 .cid-s1YMdWQfw7 .item-icon {
   color: #999999;
 }
-.cid-krTzwH1rAh {
-  background-color: #191919;
-  padding-top: 120px;
-  padding-bottom: 60px;
+.cid-sN5aJ0s2oM {
+  padding-top: 645px;
 }
-@media (max-width: 768px) {
-  .cid-krTzwH1rAh video {
-    width: 100% !important;
-  }
+.cid-sN5aJ0s2oM H2 {
+  color: #e2090d;
 }
-.cid-krTzwH1rAh video {
-  margin: auto;
-  display: block;
+.cid-sN5aJ0s2oM h1 {
+  background: linear-gradient(to left, #fc5130, currentColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cid-sN5aJ0s2oM section {
+  align-items: flex-end !important;
+}
+.cid-sN5aJ0s2oM .mbr-text,
+.cid-sN5aJ0s2oM .mbr-section-btn {
+  color: #999999;
+}
+.cid-sN5aJ0s2oM .mbr-overlay {
+  background-color: transparent !important;
+  background: linear-gradient(to top, #000000, transparent);
 }
 .cid-s1YLZwONfz .dropdown-item:before {
   font-family: MobiriseIcons !important;
